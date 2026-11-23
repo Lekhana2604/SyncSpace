@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-forest-deep: #123C32;
+    --color-forest-base: #205C49;
+    --color-forest-emerald: #328565;
+    --color-forest-sage: #70B99A;
+    --color-forest-mint: #DCEFE5;
+
+    --color-bg-base: #F7FAF7;
+    --color-surface-card: #FFFFFF;
+    --color-surface-subtle: #EDF5EF;
+    --color-border: #E2ECE5;
+
+    --color-text-primary: #1C2C25;
+    --color-text-secondary: #718078;
+    --color-text-muted: #9CA8A2;
+  }
+
+  .dark {
+    --color-forest-deep: #0B231D;
+    --color-forest-base: #17483B;
+    --color-forest-emerald: #328565;
+    --color-forest-sage: #70B99A;
+    --color-forest-mint: #205C49;
+
+    --color-bg-base: #101C18;
+    --color-surface-card: #192A23;
+    --color-surface-subtle: #223830;
+    --color-border: #2A4239;
+
+    --color-text-primary: #E8F1EB;
+    --color-text-secondary: #A3B8AD;
+    --color-text-muted: #72897E;
+  }
+
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Custom scrollbars with Forest styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #70B99A;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2A4239;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #328565;
+}
+
+/* =============================================================================
+   Tiptap Rich-Text Editor Forest Styles
+   ============================================================================= */
+.tiptap {
+  outline: none;
+  min-height: 380px;
+}
+
+.tiptap p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.tiptap h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-forest-deep);
+  line-height: 1.25;
+}
+
+.dark .tiptap h1 {
+  color: #E8F1EB;
+}
+
+.tiptap h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-forest-base);
+  line-height: 1.3;
+}
+
+.dark .tiptap h2 {
+  color: #DCEFE5;
+}
+
+.tiptap h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.tiptap em {
+  font-style: italic;
+}
+
+.tiptap u {
+  text-decoration: underline;
+  text-decoration-color: #328565;
+  text-underline-offset: 3px;
+}
+
+.tiptap s {
+  text-decoration: line-through;
+}
+
+.tiptap ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap ul li {
+  margin-bottom: 0.25rem;
+}
+
+.tiptap ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tiptap ol li {
+  margin-bottom: 0.25rem;
+}
+
+.tiptap blockquote {
+  border-left: 4px solid #205C49;
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  background-color: #EDF5EF;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .tiptap blockquote {
+  border-left-color: #70B99A;
+  background-color: #192A23;
+}
+
+.tiptap code {
+  background-color: #DCEFE5;
+  color: #123C32;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+  font-family: monospace;
+}
+
+.dark .tiptap code {
+  background-color: #223830;
+  color: #DCEFE5;
+}
+
+.tiptap pre {
+  background-color: #123C32;
+  color: #E8F1EB;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 1.5rem 0;
+}
+
+.tiptap table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.tiptap th,
+.tiptap td {
+  border: 1px solid #E2ECE5;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.dark .tiptap th,
+.dark .tiptap td {
+  border-color: #2A4239;
+}
+
+.tiptap th {
+  background-color: #EDF5EF;
+  font-weight: 600;
+}
+
+.dark .tiptap th {
+  background-color: #223830;
+}
+
+/* =============================================================================
+   Real-Time Collaboration Caret & Cursor Styles (Hocuspocus + Yjs + Tiptap)
+   ============================================================================= */
+.collaboration-carets__caret {
+  position: relative;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-left: 2px solid;
+  border-right: 0px solid;
+  word-break: normal;
+  pointer-events: none;
+}
+
+.collaboration-carets__label {
+  position: absolute;
+  top: -1.4em;
+  left: -2px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  user-select: none;
+  color: #FFFFFF;
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  pointer-events: none;
+}
+

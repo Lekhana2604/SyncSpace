@@ -1,0 +1,30 @@
+services:
+  # 1. Express REST API Backend
+  - type: web
+    name: syncspace-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://syncspace-app.netlify.app
+
+  # 2. Hocuspocus WebSockets Collaboration Server
+  - type: web
+    name: syncspace-collab
+    env: node
+    rootDir: collaboration-server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 1234
+      - key: JWT_SECRET
+        sync: false
