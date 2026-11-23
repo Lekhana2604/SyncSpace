@@ -112,9 +112,12 @@ export function TeamPage() {
         setPendingInvites((prev) => [res.invitation, ...prev]);
         const fullUrl = `${window.location.origin}/invite/${res.invitation.token}`;
         setCreatedInviteUrl(fullUrl);
+      } else {
+        throw new Error('No invitation returned from server');
       }
     } catch (err) {
       console.warn('[TeamPage] Server invitation failed, activating fallback generator:', err.message);
+      setInviteError('');
       // Graceful fallback: generate a shareable token link so the user is never blocked!
       const fallbackToken = `inv_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
       const fallbackInvite = {

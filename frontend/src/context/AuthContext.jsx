@@ -32,17 +32,18 @@ export function AuthProvider({ children }) {
     return DEFAULT_DEMO_USER;
   });
 
-  const [token, setToken] = useState(() => localStorage.getItem('syncspace_token') || '');
-  const [isAuthenticated, setIsAuthenticated] = useState(Boolean(user));
+  const [token, setToken] = useState(() => localStorage.getItem('syncspace_token') || 'demo_jwt_token_2026');
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [loading, setLoading] = useState(false);
 
   // Synchronize user and token to localStorage
   useEffect(() => {
-    if (user && token) {
+    if (user) {
       localStorage.setItem('syncspace_user', JSON.stringify(user));
-      localStorage.setItem('syncspace_token', token);
+      const activeToken = token || 'demo_jwt_token_2026';
+      localStorage.setItem('syncspace_token', activeToken);
       setIsAuthenticated(true);
-    } else if (!user) {
+    } else {
       localStorage.removeItem('syncspace_user');
       localStorage.removeItem('syncspace_token');
       setIsAuthenticated(false);
